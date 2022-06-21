@@ -473,7 +473,7 @@ VertexBufferLayout :: struct {
 	arrayStride: _c.uint64_t,
 	stepMode: VertexStepMode,
 	attributeCount: _c.uint32_t,
-	attributes: VertexAttribute,
+	attributes: ^VertexAttribute,
 }
 
 BindGroupLayoutDescriptor :: struct {

@@ -455,7 +455,6 @@ VertexStepMode :: enum _c.int {
 }
 
 BufferUsage :: enum _c.int {
-	None,
 	MapRead,
 	MapWrite,
 	CopySrc,
@@ -468,6 +467,7 @@ BufferUsage :: enum _c.int {
 	QueryResolve,
 }
 BufferUsageFlags :: bit_set[BufferUsage; _c.uint32_t]
+BufferUsageFlagsNone :: BufferUsageFlags{}
 
 ColorWriteMask :: enum _c.int {
 	Red,

@@ -6,6 +6,14 @@ when ODIN_OS == .Linux || ODIN_OS == .Darwin {
 
 import _c "core:c"
 
+ARRAY_LAYER_COUNT_UNDEFINED: _c.ulong : 0xffffffff
+COPY_STRIDE_UNDEFINED: _c.ulong : 0xffffffff
+LIMIT_U32_UNDEFINED: _c.ulong : 0xffffffff
+LIMIT_U64_UNDEFINED: _c.ulonglong : 0xffffffffffffffff
+MIP_LEVEL_COUNT_UNDEFINED: _c.ulong : 0xffffffff
+WHOLE_MAP_SIZE :: _c.SIZE_MAX
+WHOLE_SIZE: _c.ulonglong : 0xffffffffffffffff
+
 Adapter :: rawptr
 BindGroup :: rawptr
 BindGroupLayout :: rawptr
@@ -558,8 +566,6 @@ foreign wgpu_native {
 		minDepth: _c.float,
 		maxDepth: _c.float,
 	) ---
-	
-	
 	
 	SurfaceGetPreferredFormat :: proc(
 		surface: Surface,
