@@ -137,6 +137,7 @@ MultisampleState :: struct {
 	mask: _c.uint32_t,
 	alphaToCoverageEnabled: _c.bool,
 }
+MultisampleStateMaskMax :: _c.UINT32_MAX
 
 Origin3D :: struct {
 	x: _c.uint32_t,
