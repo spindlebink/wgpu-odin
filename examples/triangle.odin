@@ -6,7 +6,7 @@ import "core:mem"
 import "core:os"
 import _c "core:c"
 import sdl "vendor:sdl2"
-import "wgpu"
+import "../wgpu"
 
 load_wgsl :: proc(name: cstring, source: []u8) -> wgpu.ShaderModuleDescriptor {
 	descriptor := new(wgpu.ShaderModuleWGSLDescriptor)
