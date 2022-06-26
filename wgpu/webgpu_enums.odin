@@ -474,21 +474,18 @@ ColorWriteMask :: enum _c.int {
 	Green,
 	Blue,
 	Alpha,
-	All,
 }
 ColorWriteMaskFlags :: bit_set[ColorWriteMask; _c.uint32_t]
 ColorWriteMaskFlagsNone :: ColorWriteMaskFlags{}
 ColorWriteMaskFlagsAll :: ColorWriteMaskFlags{.Red, .Green, .Blue, .Alpha}
 
 MapMode :: enum _c.int {
-	Red,
-	Green,
-	Blue,
-	Alpha,
+	Read,
+	Write,
 }
 MapModeFlags :: bit_set[MapMode; _c.uint32_t]
 MapModeFlagsNone :: MapModeFlags{}
-MapModeFlagsAll :: MapModeFlags{.Red, .Green, .Blue, .Alpha}
+MapModeFlagsAll :: MapModeFlags{.Read, .Write}
 
 ShaderStage :: enum _c.int {
 	Vertex,
