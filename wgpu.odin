@@ -85,4 +85,60 @@ foreign wgpu_native {
 		sizeBytes: _c.uint32_t,
 		data: rawptr,
 	) ---
+
+	BufferDrop :: proc(
+		buffer: Buffer,
+	) ---
+
+	CommandEncoderDrop :: proc(
+		commandEncoder: CommandEncoder,
+	) ---
+
+	DeviceDrop :: proc(
+		device: Device,
+	) ---
+
+	QuerySetDrop :: proc(
+		querySet: QuerySet,
+	) ---
+
+	RenderPipelineDrop :: proc(
+		renderPipeline: RenderPipeline,
+	) ---
+
+	TextureDrop :: proc(
+		texture: Texture,
+	) ---
+
+	SamplerDrop :: proc(
+		sampler: Sampler,
+	)
+
+	BindGroupLayoutDrop :: proc(
+		bindGroupLayout: BindGroupLayout,
+	) ---
+	
+	PipelineLayoutDrop :: proc(
+		pipelineLayout: PipelineLayout,
+	) ---
+	
+	BindGroupDrop :: proc(
+		bindGroup: BindGroup,
+	) ---
+	
+	ShaderModuleDrop :: proc(
+		shaderModule: ShaderModule,
+	) ---
+	
+	CommandBufferDrop :: proc(
+		commandBuffer: CommandBuffer,
+	) ---
+	
+	RenderBundleDrop :: proc(
+		renderBundle: RenderBundle,
+	) ---
+	
+	ComputePipelineDrop :: proc(
+		computePipeline: ComputePipeline,
+	) ---
 }
