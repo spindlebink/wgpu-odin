@@ -193,7 +193,7 @@ foreign wgpu_native {
 
 	DeviceCreateBindGroupLayout :: proc(
 		device: Device,
-		descriptor: ^BindGroupDescriptor,
+		descriptor: ^BindGroupLayoutDescriptor,
 	) -> BindGroupLayout ---
 	
 	DeviceCreateBuffer :: proc(
