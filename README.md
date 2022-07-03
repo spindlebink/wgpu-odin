@@ -6,11 +6,7 @@ WGPU is a Rust implementation of the WebGPU standard, and the WGPU team have pro
 
 ## Status
 
-**These bindings aren't production-ready.** The triangle example is leaky and the bindings are incomplete.
-
-My goal is to use WGPU as the graphics backend for a [hobby game framework](https://github.com/spindlebink/pink), because either I'm dumb and impatient or Vulkan is a nightmare. Possibly both.
-
-The bindings have only been implemented for my dev system, which is Linux with X11. Wayland support and eventual macOS and Windows support *should* come later. SDL does most of it, anyway.
+**These bindings aren't production-ready.** I'm working on them concurrently with a project that depends on them, my creative coding/game framework [Pink](https://github.com/spindlebink/pink).
 
 ## Naming Conventions
 
