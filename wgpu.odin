@@ -112,7 +112,7 @@ foreign wgpu_native {
 
 	SamplerDrop :: proc(
 		sampler: Sampler,
-	)
+	) ---
 
 	BindGroupLayoutDrop :: proc(
 		bindGroupLayout: BindGroupLayout,
