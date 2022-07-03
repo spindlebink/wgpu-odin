@@ -359,12 +359,10 @@ VertexAttribute :: struct {
 
 BindGroupDescriptor :: struct {
 	nextInChain: ^ChainedStruct,
-	binding: _c.uint32_t,
-	visibility: ShaderStageFlags,
-	buffer: BufferBindingLayout,
-	sampler: SamplerBindingLayout,
-	texture: TextureBindingLayout,
-	storageTexture: StorageTextureBindingLayout,
+	label: cstring,
+	layout: BindGroupLayout,
+	entryCount: _c.uint32_t,
+	entries: ^BindGroupEntry,
 }
 
 BindGroupLayoutEntry :: struct {
