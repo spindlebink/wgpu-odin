@@ -110,6 +110,10 @@ foreign wgpu_native {
 		texture: Texture,
 	) ---
 
+	TextureViewDrop :: proc(
+		textureView: Texture,
+	) ---
+
 	SamplerDrop :: proc(
 		sampler: Sampler,
 	) ---
