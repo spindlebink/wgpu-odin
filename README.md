@@ -6,7 +6,7 @@ WGPU is a Rust implementation of the WebGPU standard, and the WGPU team have pro
 
 ## Status
 
-**These bindings aren't production-ready.** I'm working on them concurrently with a project that depends on them, my creative coding/game framework [Pink](https://github.com/spindlebink/pink).
+At this point, the bindings are fairly comprehensive but untested. I'm working on them concurrently with a project that depends on them, my creative coding/game framework [Pink](https://github.com/spindlebink/pink).
 
 ## Naming Conventions
 
