@@ -1,8 +1,11 @@
-# WGPU
+# WGPU Odin
 
 Bindings to [wgpu-native](https://github.com/gfx-rs/wgpu-native) in the [Odin programming language](https://odin-lang.org).
 
 WGPU is a Rust implementation of the WebGPU standard, and the WGPU team have provided C headers to make it easy for interfacing.
+
+* [Codeberg repo](https://codeberg.org/spindlebink/wgpu-odin)
+* [GitHub mirror](https://github.com/spindlebink/wgpu-odin)
 
 ## Status
 
