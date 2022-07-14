@@ -391,9 +391,9 @@ TextureFormat :: enum _c.int {
 	ASTC10x10Unorm,
 	ASTC10x10UnormSrgb,
 	ASTC12x10Unorm,
-  ASTC12x10UnormSrgb,
-  ASTC12x12Unorm,
-  ASTC12x12UnormSrgb,
+	ASTC12x10UnormSrgb,
+	ASTC12x12Unorm,
+	ASTC12x12UnormSrgb,
 }
 
 TextureSampleType :: enum _c.int {
@@ -503,4 +503,3 @@ TextureUsage :: enum _c.int {
 	RenderAttachment,
 }
 TextureUsageFlags :: bit_set[TextureUsage; _c.uint32_t]
-TextureUsageFlagsNone :: TextureUsage{}

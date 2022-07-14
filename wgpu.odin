@@ -11,6 +11,7 @@ NativeSType :: enum _c.int {
 	AdapterExtras = 0x60000002,
 	RequiredLimitsExtras = 0x60000003,
 	PipelineLayoutExtras = 0x60000004,
+	ShaderModuleGLSLDescriptor = 0x60000005,
 }
 
 NativeFeature :: enum _c.int {
@@ -80,7 +81,7 @@ foreign wgpu_native {
 	
 	RenderPassEncoderSetPushConstants :: proc(
 		encoder: RenderPassEncoder,
-		stages: ShaderStage,
+		stages: ShaderStageFlags,
 		offset: _c.uint32_t,
 		sizeBytes: _c.uint32_t,
 		data: rawptr,
