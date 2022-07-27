@@ -1,21 +1,21 @@
 package wgpu
 
-import _c "core:c"
+import "core:c"
 
-AdapterType :: enum _c.int {
+AdapterType :: enum c.int {
 	DiscreteGPU,
 	IntegratedGPU,
 	CPU,
 	Unknown,
 }
 
-AddressMode :: enum _c.int {
+AddressMode :: enum c.int {
 	Repeat,
 	MirrorRepeat,
 	ClampToEdge,
 }
 
-BackendType :: enum _c.int {
+BackendType :: enum c.int {
 	Null,
 	WebGPU,
 	D3D11,
@@ -26,7 +26,7 @@ BackendType :: enum _c.int {
 	OpenGLES,
 }
 
-BlendFactor :: enum _c.int {
+BlendFactor :: enum c.int {
 	Zero,
 	One,
 	Src,
@@ -42,7 +42,7 @@ BlendFactor :: enum _c.int {
 	OneMinusConstant,
 }
 
-BlendOperation :: enum _c.int {
+BlendOperation :: enum c.int {
 	Add,
 	Subtract,
 	ReverseSubtract,
@@ -50,14 +50,14 @@ BlendOperation :: enum _c.int {
 	Max,
 }
 
-BufferBindingType :: enum _c.int {
+BufferBindingType :: enum c.int {
 	Undefined,
 	Uniform,
 	Storage,
 	ReadOnlyStorage,
 }
 
-BufferMapAsyncStatus :: enum _c.int {
+BufferMapAsyncStatus :: enum c.int {
 	Success,
 	Error,
 	Unknown,
@@ -66,7 +66,7 @@ BufferMapAsyncStatus :: enum _c.int {
 	UnmappedBeforeCallback,
 }
 
-CompareFunction :: enum _c.int {
+CompareFunction :: enum c.int {
 	Undefined,
 	Never,
 	Less,
@@ -78,25 +78,25 @@ CompareFunction :: enum _c.int {
 	Always,
 }
 
-CompilationInfoRequestStatus :: enum _c.int {
+CompilationInfoRequestStatus :: enum c.int {
 	Success,
 	Error,
 	DeviceLost,
 	Unknown,
 }
 
-CompilationMessageType :: enum _c.int {
+CompilationMessageType :: enum c.int {
 	Error,
 	Warning,
 	Info,
 }
 
-ComputePassTimestampLocation :: enum _c.int {
+ComputePassTimestampLocation :: enum c.int {
 	Beginning,
 	End,
 }
 
-CreatePipelineAsyncStatus :: enum _c.int {
+CreatePipelineAsyncStatus :: enum c.int {
 	Success,
 	Error,
 	DeviceLost,
@@ -104,18 +104,18 @@ CreatePipelineAsyncStatus :: enum _c.int {
 	Unknown,
 }
 
-CullMode :: enum _c.int {
+CullMode :: enum c.int {
 	None,
 	Front,
 	Back,
 }
 
-DeviceLostReason :: enum _c.int {
+DeviceLostReason :: enum c.int {
 	Undefined,
 	Destroyed,
 }
 
-ErrorFilter :: enum _c.int {
+ErrorFilter :: enum c.int {
 	NoError,
 	Validation,
 	OutOfMemory,
@@ -123,7 +123,7 @@ ErrorFilter :: enum _c.int {
 	DeviceLost,
 }
 
-ErrorType :: enum _c.int {
+ErrorType :: enum c.int {
 	NoError,
 	Validation,
 	OutOfMemory,
@@ -131,7 +131,7 @@ ErrorType :: enum _c.int {
 	DeviceLost,
 }
 
-FeatureName :: enum _c.int {
+FeatureName :: enum c.int {
 	Undefined,
 	DepthClipControl,
 	Depth24UnormStencil8,
@@ -144,34 +144,34 @@ FeatureName :: enum _c.int {
 	IndirectFirstInstance,
 }
 
-FilterMode :: enum _c.int {
+FilterMode :: enum c.int {
 	Nearest,
 	Linear,
 }
 
-FrontFace :: enum _c.int {
+FrontFace :: enum c.int {
 	CCW,
 	CW,
 }
 
-IndexFormat :: enum _c.int {
+IndexFormat :: enum c.int {
 	Undefined,
 	Uint16,
 	Uint32,
 }
 
-LoadOp :: enum _c.int {
+LoadOp :: enum c.int {
 	Undefined,
 	Clear,
 	Load,
 }
 
-MipmapFilterMode :: enum _c.int {
+MipmapFilterMode :: enum c.int {
 	Nearest,
 	Linear,
 }
 
-PipelineStatisticName :: enum _c.int {
+PipelineStatisticName :: enum c.int {
 	VertexShaderInvocations,
 	ClipperInvocations,
 	ClipperPrimitivesOut,
@@ -179,24 +179,24 @@ PipelineStatisticName :: enum _c.int {
 	ComputeShaderInvocations,
 }
 
-PowerPreference :: enum _c.int {
+PowerPreference :: enum c.int {
 	Undefined,
 	LowPower,
 	HighPerformance,
 }
 
-PredefinedColorSpace :: enum _c.int {
+PredefinedColorSpace :: enum c.int {
 	Undefined,
 	Srgb,
 }
 
-PresentMode :: enum _c.int {
+PresentMode :: enum c.int {
 	Immediate,
 	Mailbox,
 	Fifo,
 }
 
-PrimitiveTopology :: enum _c.int {
+PrimitiveTopology :: enum c.int {
 	PointList,
 	LineList,
 	LineStrip,
@@ -204,38 +204,38 @@ PrimitiveTopology :: enum _c.int {
 	TriangleStrip,
 }
 
-QueryType :: enum _c.int {
+QueryType :: enum c.int {
 	Occlusion,
 	PipelineStatistics,
 	Timestamp,
 }
 
-QueueWorkDoneStatus :: enum _c.int {
+QueueWorkDoneStatus :: enum c.int {
 	Success,
 	Error,
 	Unknown,
 	DeviceLost,
 }
 
-RenderPassTimestampLocation :: enum _c.int {
+RenderPassTimestampLocation :: enum c.int {
 	Beginning,
 	End,
 }
 
-RequestAdapterStatus :: enum _c.int {
+RequestAdapterStatus :: enum c.int {
 	Success,
 	Unavailable,
 	Error,
 	Unknown,
 }
 
-RequestDeviceStatus :: enum _c.int {
+RequestDeviceStatus :: enum c.int {
 	Success,
 	Error,
 	Unknown,
 }
 
-SType :: enum _c.int {
+SType :: enum c.int {
 	Invalid,
 	SurfaceDescriptorFromMetalLayer,
 	SurfaceDescriptorFromWindowsHWND,
@@ -249,14 +249,14 @@ SType :: enum _c.int {
 	SurfaceDescriptorFromXcbWindow,
 }
 
-SamplerBindingType :: enum _c.int {
+SamplerBindingType :: enum c.int {
 	Undefined,
 	Filtering,
 	NonFiltering,
 	Comparison,
 }
 
-StencilOperation :: enum _c.int {
+StencilOperation :: enum c.int {
 	Keep,
 	Zero,
 	Replace,
@@ -267,37 +267,37 @@ StencilOperation :: enum _c.int {
 	DecrementWrap,
 }
 
-StorageTextureAccess :: enum _c.int {
+StorageTextureAccess :: enum c.int {
 	Undefined,
 	WriteOnly,
 }
 
-StoreOp :: enum _c.int {
+StoreOp :: enum c.int {
 	Undefined,
 	Store,
 	Discard,
 }
 
-TextureAspect :: enum _c.int {
+TextureAspect :: enum c.int {
 	All,
 	StencilOnly,
 	DepthOnly,
 }
 
-ComponentType :: enum _c.int {
+ComponentType :: enum c.int {
 	Float,
 	Sint,
 	Uint,
 	DepthComparison,
 }
 
-TextureDimension :: enum _c.int {
+TextureDimension :: enum c.int {
 	D1,
 	D2,
 	D3,
 }
 
-TextureFormat :: enum _c.int {
+TextureFormat :: enum c.int {
 	Undefined,
 	R8Unorm,
 	R8Snorm,
@@ -396,7 +396,7 @@ TextureFormat :: enum _c.int {
 	ASTC12x12UnormSrgb,
 }
 
-TextureSampleType :: enum _c.int {
+TextureSampleType :: enum c.int {
 	Undefined,
 	Float,
 	UnfilterableFloat,
@@ -405,7 +405,7 @@ TextureSampleType :: enum _c.int {
 	Uint,
 }
 
-TextureViewDimension :: enum _c.int {
+TextureViewDimension :: enum c.int {
 	Undefined,
 	D1,
 	D2,
@@ -415,7 +415,7 @@ TextureViewDimension :: enum _c.int {
 	D3,
 }
 
-VertexFormat :: enum _c.int {
+VertexFormat :: enum c.int {
 	Undefined,
 	Uint8x2,
 	Uint8x4,
@@ -449,12 +449,12 @@ VertexFormat :: enum _c.int {
 	Sint32x4,
 }
 
-VertexStepMode :: enum _c.int {
+VertexStepMode :: enum c.int {
 	Vertex,
 	Instance,
 }
 
-BufferUsage :: enum _c.int {
+BufferUsage :: enum c.int {
 	MapRead,
 	MapWrite,
 	CopySrc,
@@ -466,40 +466,40 @@ BufferUsage :: enum _c.int {
 	Indirect,
 	QueryResolve,
 }
-BufferUsageFlags :: bit_set[BufferUsage; _c.uint32_t]
+BufferUsageFlags :: bit_set[BufferUsage; c.uint32_t]
 BufferUsageFlagsNone :: BufferUsageFlags{}
 
-ColorWriteMask :: enum _c.int {
+ColorWriteMask :: enum c.int {
 	Red,
 	Green,
 	Blue,
 	Alpha,
 }
-ColorWriteMaskFlags :: bit_set[ColorWriteMask; _c.uint32_t]
+ColorWriteMaskFlags :: bit_set[ColorWriteMask; c.uint32_t]
 ColorWriteMaskFlagsNone :: ColorWriteMaskFlags{}
 ColorWriteMaskFlagsAll :: ColorWriteMaskFlags{.Red, .Green, .Blue, .Alpha}
 
-MapMode :: enum _c.int {
+MapMode :: enum c.int {
 	Read,
 	Write,
 }
-MapModeFlags :: bit_set[MapMode; _c.uint32_t]
+MapModeFlags :: bit_set[MapMode; c.uint32_t]
 MapModeFlagsNone :: MapModeFlags{}
 MapModeFlagsAll :: MapModeFlags{.Read, .Write}
 
-ShaderStage :: enum _c.int {
+ShaderStage :: enum c.int {
 	Vertex,
 	Fragment,
 	Compute,
 }
-ShaderStageFlags :: bit_set[ShaderStage; _c.uint32_t]
+ShaderStageFlags :: bit_set[ShaderStage; c.uint32_t]
 ShaderStageFlagsNone :: ShaderStageFlags{}
 
-TextureUsage :: enum _c.int {
+TextureUsage :: enum c.int {
 	CopySrc,
 	CopyDst,
 	TextureBinding,
 	StorageBinding,
 	RenderAttachment,
 }
-TextureUsageFlags :: bit_set[TextureUsage; _c.uint32_t]
+TextureUsageFlags :: bit_set[TextureUsage; c.uint32_t]

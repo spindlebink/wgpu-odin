@@ -10,9 +10,9 @@ when ODIN_OS == .Linux || ODIN_OS == .Darwin {
 	foreign import wgpu_native "wgpu_native.lib"
 }
 
-import _c "core:c"
+import "core:c"
 
-NativeSType :: enum _c.int {
+NativeSType :: enum c.int {
 	DeviceExtras = 0x60000001,
 	AdapterExtras = 0x60000002,
 	RequiredLimitsExtras = 0x60000003,
@@ -20,12 +20,12 @@ NativeSType :: enum _c.int {
 	ShaderModuleGLSLDescriptor = 0x60000005,
 }
 
-NativeFeature :: enum _c.int {
+NativeFeature :: enum c.int {
 	PUSH_CONSTANTS = 0x04000000,
 	TEXTURE_ADAPTER_SPECIFIC_FORMAT_FEATURES = 0x10000000,
 }
 
-LogLevel :: enum _c.int {
+LogLevel :: enum c.int {
 	Off,
 	Error,
 	Warn,
@@ -48,18 +48,18 @@ DeviceExtras :: struct {
 
 RequiredLimitsExtras :: struct {
 	chain: ChainedStruct,
-	maxPushConstantSize: _c.uint32_t,
+	maxPushConstantSize: c.uint32_t,
 }
 
 PushConstantRange :: struct {
 	stages: ShaderStageFlags,
-	start: _c.uint32_t,
-	end: _c.uint32_t,
+	start: c.uint32_t,
+	end: c.uint32_t,
 }
 
 PipelineLayoutExtras :: struct {
 	chain: ChainedStruct,
-	pushConstantRangeCount: _c.uint32_t,
+	pushConstantRangeCount: c.uint32_t,
 	pushConstantRanges: ^PushConstantRange,
 }
 
@@ -83,13 +83,13 @@ foreign wgpu_native {
 		level: LogLevel,
 	) ---
 	
-	GetVersion :: proc() -> _c.uint32_t ---
+	GetVersion :: proc() -> c.uint32_t ---
 	
 	RenderPassEncoderSetPushConstants :: proc(
 		encoder: RenderPassEncoder,
 		stages: ShaderStageFlags,
-		offset: _c.uint32_t,
-		sizeBytes: _c.uint32_t,
+		offset: c.uint32_t,
+		sizeBytes: c.uint32_t,
 		data: rawptr,
 	) ---
 

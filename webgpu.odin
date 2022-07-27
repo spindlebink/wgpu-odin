@@ -10,15 +10,15 @@ when ODIN_OS == .Linux || ODIN_OS == .Darwin {
 	foreign import wgpu_native "wgpu_native.lib"
 }
 
-import _c "core:c"
+import "core:c"
 
-ARRAY_LAYER_COUNT_UNDEFINED: _c.ulong : 0xffffffff
-COPY_STRIDE_UNDEFINED: _c.ulong : 0xffffffff
-LIMIT_U32_UNDEFINED: _c.ulong : 0xffffffff
-LIMIT_U64_UNDEFINED: _c.ulonglong : 0xffffffffffffffff
-MIP_LEVEL_COUNT_UNDEFINED: _c.ulong : 0xffffffff
-WHOLE_MAP_SIZE :: _c.SIZE_MAX
-WHOLE_SIZE: _c.ulonglong : 0xffffffffffffffff
+ARRAY_LAYER_COUNT_UNDEFINED: c.ulong : 0xffffffff
+COPY_STRIDE_UNDEFINED: c.ulong : 0xffffffff
+LIMIT_U32_UNDEFINED: c.ulong : 0xffffffff
+LIMIT_U64_UNDEFINED: c.ulonglong : 0xffffffffffffffff
+MIP_LEVEL_COUNT_UNDEFINED: c.ulong : 0xffffffff
+WHOLE_MAP_SIZE :: c.SIZE_MAX
+WHOLE_SIZE: c.ulonglong : 0xffffffffffffffff
 
 Adapter :: rawptr
 BindGroup :: rawptr
@@ -58,12 +58,12 @@ foreign wgpu_native {
 	AdapterEnumerateFeatures :: proc(
 		adapter: Adapter,
 		features: ^FeatureName,
-	) -> _c.size_t ---
+	) -> c.size_t ---
 	
 	AdapterGetLimits :: proc(
 		adapter: Adapter,
 		limits: ^SupportedLimits,
-	) -> _c.bool ---
+	) -> c.bool ---
 
 	AdapterGetProperties :: proc(
 		adapter: Adapter,
@@ -73,7 +73,7 @@ foreign wgpu_native {
 	AdapterHasFeature :: proc(
 		adapter: Adapter,
 		feature: FeatureName,
-	) -> _c.bool ---
+	) -> c.bool ---
 
 	AdapterRequestDevice :: proc(
 		adapter: Adapter,
@@ -88,21 +88,21 @@ foreign wgpu_native {
 	
 	BufferGetConstMappedRange :: proc(
 		buffer: Buffer,
-		offset: _c.size_t,
-		size: _c.size_t,
+		offset: c.size_t,
+		size: c.size_t,
 	) -> rawptr ---
 	
 	BufferGetMappedRange :: proc(
 		buffer: Buffer,
-		offset: _c.size_t,
-		size: _c.size_t,
+		offset: c.size_t,
+		size: c.size_t,
 	) -> rawptr ---
 	
 	BufferMapAsync :: proc(
 		buffer: Buffer,
 		mode: MapModeFlags,
-		offset: _c.size_t,
-		size: _c.size_t,
+		offset: c.size_t,
+		size: c.size_t,
 		callback: BufferMapCallback,
 		userdata: rawptr,
 	) ---
@@ -124,17 +124,17 @@ foreign wgpu_native {
 	CommandEncoderClearBuffer :: proc(
 		commandEncoder: CommandEncoder,
 		buffer: Buffer,
-		offset: _c.uint64_t,
-		size: _c.uint64_t,
+		offset: c.uint64_t,
+		size: c.uint64_t,
 	) ---
 
 	CommandEncoderCopyBufferToBuffer :: proc(
 		commandEncoder: CommandEncoder,
 		source: Buffer,
-		sourceOffset: _c.uint64_t,
+		sourceOffset: c.uint64_t,
 		destination: Buffer,
-		destinationOffset: _c.uint64_t,
-		size: _c.uint64_t,
+		destinationOffset: c.uint64_t,
+		size: c.uint64_t,
 	) ---
 	
 	CommandEncoderCopyBufferToTexture :: proc(
@@ -180,16 +180,16 @@ foreign wgpu_native {
 	CommandEncoderResolveQuerySet :: proc(
 		commandEncoder: CommandEncoder,
 		querySet: QuerySet,
-		firstQuery: _c.uint32_t,
-		queryCount: _c.uint32_t,
+		firstQuery: c.uint32_t,
+		queryCount: c.uint32_t,
 		destination: Buffer,
-		destinationOffset: _c.uint64_t,
+		destinationOffset: c.uint64_t,
 	) ---
 	
 	CommandEncoderWriteTimestamp :: proc(
 		commandEncoder: CommandEncoder,
 		querySet: QuerySet,
-		queryIndex: _c.uint32_t,
+		queryIndex: c.uint32_t,
 	) ---
 
 	DeviceCreateBindGroup :: proc(
@@ -279,12 +279,12 @@ foreign wgpu_native {
 	DeviceEnumerateFeatures :: proc(
 		device: Device,
 		features: ^FeatureName,
-	) -> _c.size_t ---
+	) -> c.size_t ---
 	
 	DeviceGetLimits :: proc(
 		device: Device,
 		limits: ^SupportedLimits,
-	) -> _c.bool ---
+	) -> c.bool ---
 	
 	DeviceGetQueue :: proc(
 		device: Device,
@@ -293,13 +293,13 @@ foreign wgpu_native {
 	DeviceHasFeature :: proc(
 		device: Device,
 		feature: FeatureName,
-	) -> _c.bool ---
+	) -> c.bool ---
 
 	DevicePopErrorScope :: proc(
 		device: Device,
 		callback: ErrorCallback,
 		userdata: rawptr,
-	) -> _c.bool ---
+	) -> c.bool ---
 	
 	DevicePushErrorScope :: proc(
 		device: Device,
@@ -346,54 +346,54 @@ foreign wgpu_native {
 	
 	QueueSubmit :: proc(
 		queue: Queue,
-		commandCount: _c.uint32_t,
+		commandCount: c.uint32_t,
 		commands: ^CommandBuffer,
 	) ---
 	
 	QueueWriteBuffer :: proc(
 		queue: Queue,
 		buffer: Buffer,
-		bufferOffset: _c.uint64_t,
+		bufferOffset: c.uint64_t,
 		data: rawptr,
-		size: _c.size_t,
+		size: c.size_t,
 	) ---
 	
 	QueueWriteTexture :: proc(
 		queue: Queue,
 		destination: ^ImageCopyTexture,
 		data: rawptr,
-		dataSize: _c.size_t,
+		dataSize: c.size_t,
 		dataLayout: ^TextureDataLayout,
 		writeSize: ^Extent3D,
 	) ---
 	
 	RenderBundleEncoderDraw :: proc(
 		renderBundleEncoder: RenderBundleEncoder,
-		vertexCount: _c.uint32_t,
-		instanceCount: _c.uint32_t,
-		firstVertex: _c.uint32_t,
-		firstInstance: _c.uint32_t,
+		vertexCount: c.uint32_t,
+		instanceCount: c.uint32_t,
+		firstVertex: c.uint32_t,
+		firstInstance: c.uint32_t,
 	) ---
 	
 	RenderBundleEncoderDrawIndexed :: proc(
 		renderBundleEncoder: RenderBundleEncoder,
-		indexCount: _c.uint32_t,
-		instanceCount: _c.uint32_t,
-		firstIndex: _c.uint32_t,
-		baseVertex: _c.int32_t,
-		firstInstance: _c.uint32_t,
+		indexCount: c.uint32_t,
+		instanceCount: c.uint32_t,
+		firstIndex: c.uint32_t,
+		baseVertex: c.int32_t,
+		firstInstance: c.uint32_t,
 	) ---
 	
 	RenderBundleEncoderDrawIndexedIndirect :: proc(
 		renderBundleEncoder: RenderBundleEncoder,
 		indirectBuffer: Buffer,
-		indirectOffset: _c.uint64_t,
+		indirectOffset: c.uint64_t,
 	) ---
 	
 	RenderBundleEncoderDrawIndirect :: proc(
 		renderBundleEncoder: RenderBundleEncoder,
 		indirectBuffer: Buffer,
-		indirectOffset: _c.uint64_t,
+		indirectOffset: c.uint64_t,
 	) ---
 	
 	RenderBundleEncoderFinish :: proc(
@@ -417,18 +417,18 @@ foreign wgpu_native {
 	
 	RenderBundleEncoderSetBindGroup :: proc(
 		renderBundleEncoder: RenderBundleEncoder,
-		groupIndex: _c.uint32_t,
+		groupIndex: c.uint32_t,
 		group: BindGroup,
-		dynamicOffsetCount: _c.uint32_t,
-		dynamicOffsets: ^_c.uint32_t,
+		dynamicOffsetCount: c.uint32_t,
+		dynamicOffsets: ^c.uint32_t,
 	) ---
 	
 	RenderBundleEncoderSetIndexBuffer :: proc(
 		renderBundleEncoder: RenderBundleEncoder,
 		buffer: Buffer,
 		format: IndexFormat,
-		offset: _c.uint64_t,
-		size: _c.uint64_t,
+		offset: c.uint64_t,
+		size: c.uint64_t,
 	) ---
 	
 	RenderBundleEncoderSetPipeline :: proc(
@@ -438,50 +438,50 @@ foreign wgpu_native {
 	
 	RenderBundleEncoderSetVertexBuffer :: proc(
 		renderBundleEncoder: RenderBundleEncoder,
-		slot: _c.uint32_t,
+		slot: c.uint32_t,
 		buffer: Buffer,
-		offset: _c.uint64_t,
-		size: _c.uint64_t,
+		offset: c.uint64_t,
+		size: c.uint64_t,
 	) ---
 	
 	RenderPassEncoderBeginOcclusionQuery :: proc(
 		renderPassEncoder: RenderPassEncoder,
-		queryIndex: _c.uint32_t,
+		queryIndex: c.uint32_t,
 	) ---
 	
 	RenderPassEncoderBeginPipelineStatisticsQuery :: proc(
 		renderPassEncoder: RenderPassEncoder,
 		querySet: QuerySet,
-		queryIndex: _c.uint32_t,
+		queryIndex: c.uint32_t,
 	) ---
 	
 	RenderPassEncoderDraw :: proc(
 		renderPassEncoder: RenderPassEncoder,
-		vertexCount: _c.uint32_t,
-		instanceCount: _c.uint32_t,
-		firstVertex: _c.uint32_t,
-		firstInstance: _c.uint32_t,
+		vertexCount: c.uint32_t,
+		instanceCount: c.uint32_t,
+		firstVertex: c.uint32_t,
+		firstInstance: c.uint32_t,
 	) ---
 	
 	RenderPassEncoderDrawIndexed :: proc(
 		renderPassEncoder: RenderPassEncoder,
-		indexCount: _c.uint32_t,
-		instanceCount: _c.uint32_t,
-		firstIndex: _c.uint32_t,
-		baseVertex: _c.int32_t,
-		firstInstance: _c.uint32_t,
+		indexCount: c.uint32_t,
+		instanceCount: c.uint32_t,
+		firstIndex: c.uint32_t,
+		baseVertex: c.int32_t,
+		firstInstance: c.uint32_t,
 	) ---
 	
 	RenderPassEncoderDrawIndexedIndirect :: proc(
 		renderPassEncoder: RenderPassEncoder,
 		indirectBuffer: Buffer,
-		indirectOffset: _c.uint64_t,
+		indirectOffset: c.uint64_t,
 	) ---
 	
 	RenderPassEncoderDrawIndirect :: proc(
 		renderPassEncoder: RenderPassEncoder,
 		indirectBuffer: Buffer,
-		indirectOffset: _c.uint64_t,
+		indirectOffset: c.uint64_t,
 	) ---
 	
 	RenderPassEncoderEnd :: proc(
@@ -498,7 +498,7 @@ foreign wgpu_native {
 	
 	RenderPassEncoderExecuteBundles :: proc(
 		renderPassEncoder: RenderPassEncoder,
-		bundlesCount: _c.uint32_t,
+		bundlesCount: c.uint32_t,
 		bundles: ^RenderBundle,
 	) ---
 	
@@ -518,10 +518,10 @@ foreign wgpu_native {
 	
 	RenderPassEncoderSetBindGroup :: proc(
 		renderPassEncoder: RenderPassEncoder,
-		groupIndex: _c.uint32_t,
+		groupIndex: c.uint32_t,
 		group: BindGroup,
-		dynamicOffsetCount: _c.uint32_t,
-		dynamicOffsets: ^_c.uint32_t,
+		dynamicOffsetCount: c.uint32_t,
+		dynamicOffsets: ^c.uint32_t,
 	) ---
 	
 	RenderPassEncoderSetBlendConstant :: proc(
@@ -533,8 +533,8 @@ foreign wgpu_native {
 		renderPassEncoder: RenderPassEncoder,
 		buffer: Buffer,
 		format: IndexFormat,
-		offset: _c.uint64_t,
-		size: _c.uint64_t,
+		offset: c.uint64_t,
+		size: c.uint64_t,
 	) ---
 	
 	RenderPassEncoderSetPipeline :: proc(
@@ -544,33 +544,33 @@ foreign wgpu_native {
 	
 	RenderPassEncoderSetScissorRect :: proc(
 		renderPassEncoder: RenderPassEncoder,
-		x: _c.uint32_t,
-		y: _c.uint32_t,
-		width: _c.uint32_t,
-		height: _c.uint32_t,
+		x: c.uint32_t,
+		y: c.uint32_t,
+		width: c.uint32_t,
+		height: c.uint32_t,
 	) ---
 	
 	RenderPassEncoderSetStencilReference :: proc(
 		renderPassEncoder: RenderPassEncoder,
-		reference: _c.uint32_t,
+		reference: c.uint32_t,
 	) ---
 	
 	RenderPassEncoderSetVertexBuffer :: proc(
 		renderPassEncoder: RenderPassEncoder,
-		slot: _c.uint32_t,
+		slot: c.uint32_t,
 		buffer: Buffer,
-		offset: _c.uint64_t,
-		size: _c.uint64_t,
+		offset: c.uint64_t,
+		size: c.uint64_t,
 	) ---
 	
 	RenderPassEncoderSetViewport :: proc(
 		renderPassEncoder: RenderPassEncoder,
-		x: _c.float,
-		y: _c.float,
-		width: _c.float,
-		height: _c.float,
-		minDepth: _c.float,
-		maxDepth: _c.float,
+		x: c.float,
+		y: c.float,
+		width: c.float,
+		height: c.float,
+		minDepth: c.float,
+		maxDepth: c.float,
 	) ---
 	
 	SurfaceGetPreferredFormat :: proc(

@@ -1,6 +1,6 @@
 package wgpu
 
-import _c "core:c"
+import "core:c"
 
 Proc :: #type proc() 
 
