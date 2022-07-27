@@ -1,9 +1,12 @@
 package wgpu
 
 when ODIN_OS == .Linux || ODIN_OS == .Darwin {
-	foreign import wgpu_native "system:wgpu_native"
-}
-else when ODIN_OS == .Windows {
+	when #config(WGPU_USE_SYSTEM_LIBRARIES, false) {
+		foreign import wgpu_native "system:wgpu_native"
+	} else {
+		foreign import wgpu_native "libwgpu_native.a"
+	}
+} else when ODIN_OS == .Windows {
 	foreign import wgpu_native "wgpu_native.lib"
 }
 

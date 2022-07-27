@@ -17,6 +17,10 @@ Per the Odin vendor packages, the bindings here directly employ the naming found
 
 There are a couple of inconsistent names in the WGPU source where enum members are in `SCREAMING_CASE` instead of the `UpperCamelCase` found elsewhere. I've reproduced even those. The goal is 1-1.
 
+## Linking
+
+On Linux or Mac, you can tell the library to link against system `libwgpu_native` instead of one provided in the directory by defining the Odin config value `WGPU_USE_SYSTEM_LIBRARIES` as `true`.
+
 ## License
 
 BSD 3-clause.
